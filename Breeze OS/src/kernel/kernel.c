@@ -37,9 +37,7 @@ void main() {
     
     installKB();
     
-    
-    
-//     timer_install();
+    __asm__ __volatile__("sti");
     
 //     kprint("System has suffered critical damage", TRUE, FALSE, PANIC); //TODO: Make sure _x is NOT incremented if there is a kernel panic screen. _x MUST be equal to 0. Also, check if you can set the font to white while maintaining the blue borders - just make a new static kernel panic print function and call it in kprint
     
