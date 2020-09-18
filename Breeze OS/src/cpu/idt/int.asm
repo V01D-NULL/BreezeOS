@@ -82,6 +82,7 @@ irq_common_stub:
     pop ds
     popa
     add esp, 8
+    sti
     iret
     
 common_isr_stub:
@@ -106,6 +107,7 @@ common_isr_stub:
     pop ds
     popa
     add esp, 8     ; Cleans up the pushed error code and pushed ISR number
+    sti
     iret
     
 ; All isr's up to isr 7 have no error code

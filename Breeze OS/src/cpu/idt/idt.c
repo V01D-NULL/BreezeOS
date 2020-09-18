@@ -81,7 +81,7 @@ void installIDT()
     kprint("TASK: Loading IDT into memory via lidt..", TRUE, FALSE, LOG);
    
     __asm__ __volatile__("lidt (%0)" : : "r" (&p_idt));
-
+    
     kprint("TASK: Loaded IDT into memory", TRUE, TRUE, LOG);
     
     kprint("IDT_LOG: Installed IDT", TRUE, TRUE, LOG);
