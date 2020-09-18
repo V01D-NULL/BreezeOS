@@ -1,5 +1,5 @@
-#include <BreezeOS/cpu/types.h>
-#include <BreezeOS/drivers/ScreenIO/screen.h>
+#include <cpu/types.h>
+#include <drivers/ScreenIO/screen.h>
 
 #define IDT_MAX 256
 

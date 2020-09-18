@@ -4,7 +4,7 @@
 * 
 */
 
-#include <BreezeOS/kernel/util.h>
+#include <kernel/util.h>
 
 //bootleg sleep function. This is the closest it get's without programming the PIT
 void sleep(int time) {

@@ -14,7 +14,7 @@
 #include "../cpu/idt/export_idt.h"
 #include "../cpu/idt/isr.h"
 #include "../cpu/idt/irq.h"
-#include "../sys/time/clock.h"
+// #include "../sys/time/clock.h"
 
 void kBootMsg(char* msg, int color);
 

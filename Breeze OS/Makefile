@@ -34,9 +34,9 @@ OBJ_ASM   := $(ASMFILES:.asm=.o)
 OBJ = $(OBJ_C) $(OBJ_ASM)
 
 #GCC Compiler flags
-CFLAGS = -g -ffreestanding -nostdlib -m32 ${DDIRECTIVE} -c
+CFLAGS = -Iincludes/ -g -ffreestanding -nostdlib -m32 ${DDIRECTIVE} -c
 # Change ${DDIRECTIVE_RELEASE} to ${DDIRECTIVE_RELEASE_RAW_SPEED} if you wish for no delay during printing to the screen. This will make the text unreadable, but the OS boots up a bit faster
-CFLAGS_RELEASE = -ffreestanding -nostdlib -m32 ${DDIRECTIVE_RELEASE} -c
+CFLAGS_RELEASE = -Iincludes/ -ffreestanding -nostdlib -m32 ${DDIRECTIVE_RELEASE} -c
 CC_VERBOSE = gcc
 CC = @gcc
 

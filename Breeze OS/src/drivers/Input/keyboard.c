@@ -1,9 +1,9 @@
-#include <BreezeOS/cpu/idt/irq.h>
-#include <BreezeOS/drivers/ScreenIO/screen.h>
-#include <BreezeOS/drivers/PortIO/port.h>
-#include <BreezeOS/text/scancodes/EN-US/scancodes.h>
-#include <BreezeOS/drivers/Input/keyboard.h>
-#include <BreezeOS/cpu/idt/export_idt.h>
+#include <cpu/idt/irq.h>
+#include <drivers/ScreenIO/screen.h>
+#include <drivers/PortIO/port.h>
+#include <text/scancodes/EN-US/scancodes.h>
+#include <drivers/Input/keyboard.h>
+#include <cpu/idt/export_idt.h>
 
 void keyboard_callback(struct regs* r)
 {

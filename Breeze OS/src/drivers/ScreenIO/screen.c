@@ -1,4 +1,4 @@
-#include <BreezeOS/drivers/ScreenIO/screen.h>
+#include <drivers/ScreenIO/screen.h>
 
 
 _int16* vidmem = (_uint16*) VIDMEM;

@@ -1,18 +1,18 @@
-// #include <BreezeOS/kernel/kernel.h>
-#include <BreezeOS/kernel/util.h>
-#include <BreezeOS/drivers/ScreenIO/screen.h>
-#include <BreezeOS/drivers/PortIO/port.h>
-#include <BreezeOS/crypto/rand.h>
-#include <BreezeOS/crypto/ceaser.h>
-#include <BreezeOS/drivers/ScreenIO/vga.h>
-#include <BreezeOS/cpu/gdt/gdt.h>
-#include <BreezeOS/cpu/CPUID/cpuid.h>
-#include <BreezeOS/power/VM/shutdown.h>
-#include <BreezeOS/cpu/idt/export_idt.h>
-#include <BreezeOS/cpu/idt/isr.h>
-#include <BreezeOS/cpu/idt/irq.h>
-#include <BreezeOS/drivers/Input/keyboard.h>
-#include <BreezeOS/sys/time/clock.h>
+// #include <kernel/kernel.h>
+#include <kernel/util.h>
+#include <drivers/ScreenIO/screen.h>
+#include <drivers/PortIO/port.h>
+#include <crypto/rand.h>
+#include <crypto/ceaser.h>
+#include <drivers/ScreenIO/vga.h>
+#include <cpu/gdt/gdt.h>
+#include <cpu/CPUID/cpuid.h>
+#include <power/VM/shutdown.h>
+#include <cpu/idt/export_idt.h>
+#include <cpu/idt/isr.h>
+#include <cpu/idt/irq.h>
+#include <drivers/Input/keyboard.h>
+// #include <sys/time/clock.h>
 
 void main() {
     disable_cursor();

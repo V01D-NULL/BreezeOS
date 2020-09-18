@@ -1,4 +1,4 @@
-#include <BreezeOS/drivers/ScreenIO/vga.h>
+#include <drivers/ScreenIO/vga.h>
 
 // Broken. Cursor get's really big.
 // void cursor_disable()
