@@ -1,6 +1,6 @@
 #define cpuid(in, a, b, c, d) __asm__("cpuid": "=a" (a), "=b" (b), "=c" (c), "=d" (d) : "a" (in));
 
-#include <BreezeOS/cpu/CPUID/cpuid.h>
+#include <cpu/CPUID/cpuid.h>
 
 void detect_cpu()
 {

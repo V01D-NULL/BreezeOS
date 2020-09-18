@@ -1,4 +1,4 @@
-#include <BreezeOS/crypto/rand.h>
+#include <crypto/rand.h>
 
 #define RAND_MAX 32767
 unsigned long next = 1;

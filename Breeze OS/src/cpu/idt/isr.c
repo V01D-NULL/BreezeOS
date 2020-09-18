@@ -1,7 +1,7 @@
-#include <BreezeOS/cpu/idt/isr.h>
-#include <BreezeOS/cpu/idt/export_idt.h>
-#include <BreezeOS/drivers/ScreenIO/screen.h>
-#include <BreezeOS/power/VM/shutdown.h>
+#include <cpu/idt/isr.h>
+#include <cpu/idt/export_idt.h>
+#include <drivers/ScreenIO/screen.h>
+#include <power/VM/shutdown.h>
 
 /* Install CPU specific ISR's */
 void install_CPU_ISR()

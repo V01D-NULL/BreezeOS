@@ -1,4 +1,4 @@
-#include <BreezeOS/cpu/gdt/gdt.h>
+#include <cpu/gdt/gdt.h>
 
 void gdt_load_wrapper()
 {

@@ -1,4 +1,4 @@
-#include <BreezeOS/power/VM/shutdown.h>
+#include <power/VM/shutdown.h>
 
 static void internal_VM_shutdown_func(struct VM_TYPE vm, int type)
 {

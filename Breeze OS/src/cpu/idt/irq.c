@@ -1,6 +1,6 @@
 /* Heavily inspired by: http://www.osdever.net/bkerndev/Docs/irqs.htm */
-#include <BreezeOS/cpu/idt/irq.h>
-#include <BreezeOS/drivers/ScreenIO/screen.h>
+#include <cpu/idt/irq.h>
+#include <drivers/ScreenIO/screen.h>
 
 void* irq_routines[16] = {
     0, 0, 0, 0, 0, 0, 0, 0,
