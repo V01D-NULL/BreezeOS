@@ -32,11 +32,12 @@ void main() {
     installIDT();
 
     install_CPU_ISR();
-//     installIRQS();
-//     
-//     installKB();
+    installIRQS();
     
-    asm volatile("int $1");
+    
+    installKB();
+    
+    
     
 //     timer_install();
     
