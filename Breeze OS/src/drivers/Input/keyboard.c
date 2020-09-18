@@ -5,8 +5,6 @@
 #include <BreezeOS/drivers/Input/keyboard.h>
 #include <BreezeOS/cpu/idt/export_idt.h>
 
-//Maybe the -> in set_idt_gate is causing IRQ not to fire.
-
 void keyboard_callback(struct regs* r)
 {
     while (1) {
