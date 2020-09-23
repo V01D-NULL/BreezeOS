@@ -1,5 +1,6 @@
 # BreezeOS
 Breeze OS is an experimental 32 bit operating system under active development
+
 (This is the second branch, in which I hope to fix the bugs below by rewriting everything in the src/cpu/idt/ folder)
 
 # Bug tracker:
