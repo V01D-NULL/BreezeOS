@@ -4,7 +4,6 @@
 #include "../../cpu/types.h"
 #include "../../kernel/util.h"
 #include "vga.h"
-#include "../../kernel/kernel.h"
 #include "../../libc/math.h"
 
 //Macro constants
@@ -73,14 +72,6 @@ enum vga_color {
     VGA_LIGHT_YELLOW,
     VGA_WHITE,
 };
-
-// UNUSED
-// enum log_state {
-//     int normal;
-//     int warning;
-//     int panic;
-//     int kern_log_dump; //Print white text on black background. This displays what the kernel logged durring a kernel panic, or when verbose booting is enabled.
-// };
 
 static inline _uint8 vga_entry_color(enum vga_color foreground, enum vga_color background){
     return foreground | (background << 4);
