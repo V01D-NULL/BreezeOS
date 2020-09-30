@@ -1,5 +1,5 @@
 # BreezeOS
-Breeze OS is an experimental 32 bit operating system under active development
+Breeze OS is an experimental 32 bit operating system - not under development anymore.
 
 # Bug tracker:
     1. ISR's do not correctly catch `int` interrupts. (Cause the errror without the int opcode and the kernel returns the correct message. Use the `int` opcode and the kernel returns interrupt 15 - Unknown interrupt) -- Status: [ INCOMPLETE ]
