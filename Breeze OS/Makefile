@@ -244,3 +244,11 @@ else
 	$(CC_VERBOSE) $(CFLAGS) $< -o $@
 endif
 endif
+
+bootloader:
+	$(NASM) boot/boot.asm -o boot/boot.bin
+	@printf "Compiled bootloader\n";
+	
+run_bootloader:
+	qemu-system-x86_64 boot/boot.bin
+
