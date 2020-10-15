@@ -8,6 +8,7 @@
 #include <cpu/gdt/gdt.h>
 #include <cpu/CPUID/cpuid.h>
 #include <power/VM/shutdown.h>
+#include <cpu/idt/idt.h>
 // #include <drivers/Input/keyboard.h>
 // #include <sys/time/clock.h>
 
@@ -26,7 +27,9 @@ void main() {
     detect_cpu();
     gdt_load_wrapper();
     
-//     asm("int $1");
+    idt_init();
+    
+    asm("int $1");
     
 //     kprint("System has suffered critical damage", TRUE, FALSE, PANIC); //TODO: Make sure _x is NOT incremented if there is a kernel panic screen. _x MUST be equal to 0. Also, check if you can set the font to white while maintaining the blue borders - just make a new static kernel panic print function and call it in kprint
     

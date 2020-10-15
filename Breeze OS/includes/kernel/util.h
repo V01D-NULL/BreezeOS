@@ -9,7 +9,7 @@ int strlen(const char* str);
 int itoa(int num, char *number);
 _uint32 digit_count(int num);
 void memset(void* dst, char value, _uint32 length);
-void memcpy(char* src, char* dst, int Abytes); //Abytes = Ammount of bytes
+void memcpy(void* src, void* dst, int Abytes); //Abytes = Ammount of bytes
 char* str_reverse(char str[]);
 char* strcat(char* a, char* b);
 char* decToHexa(int n);

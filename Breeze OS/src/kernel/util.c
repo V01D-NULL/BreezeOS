@@ -121,10 +121,10 @@ int itoa(int num, char *number)
   }
 }
 
-void memcpy(char* src, char* dst, int Abytes)
+void memcpy(void* src, void* dst, int Abytes)
 {
         for (int i = 0; i<Abytes; i++) {
-            *(dst + i) = *(src + i);
+            *((char*)dst + i) = *((char*)src + i);
         }
 }
 

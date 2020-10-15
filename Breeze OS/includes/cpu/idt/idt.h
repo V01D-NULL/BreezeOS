@@ -23,7 +23,6 @@ typedef struct {
     
 }__attribute__((packed)) idt_ptr_t;
 
-idt_t idt[IDT_MAX];
-idt_ptr_t idt_ptr;
+void idt_init();
 
 #endif
