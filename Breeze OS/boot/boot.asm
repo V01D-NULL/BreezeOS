@@ -1,6 +1,9 @@
 ; Migrating from grub to a custom bootloader + jumping to 64 bits/long mode
 [org 0x7c00]
 
+; Save bootdrive
+mov [BOOT_DRIVE], dl
+
 ; Setup stack
 mov bp, 0x7c00
 mov sp, bp
@@ -12,6 +15,7 @@ mov si, bootloader_version
 call printf
 
 ; Read sectors
+call expand_memory
 
 
 ; Jump to 32 bits
