@@ -22,5 +22,5 @@ disk_read_error:
 BOOT_DRIVE:
     db 0
     
-read_error: db "Could not read from disk!", 0x0a, 0x0d, 0
+read_error: db "(BOOT) [FATAL] Could not read from disk!", 0x0a, 0x0d, 0
 read_success: db "(BOOT) [OK] Disk read", 0x0a, 0x0d, 0

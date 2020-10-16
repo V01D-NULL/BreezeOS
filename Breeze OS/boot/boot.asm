@@ -17,9 +17,13 @@ call printf
 ; Read sectors
 call expand_memory
 
+; Access extended memory
+jmp PRG_SPACE
 
-; Jump to 32 bits
-
+; Something went wrong, bootloader is stuck at 512 bytes.
+; Add a better error handler in the future
+mov si, jump_failure
+call printf
 jmp $
 
 %include "boot/screen/mode.asm"
@@ -27,6 +31,6 @@ jmp $
 %include "boot/disk/disk.asm"
 
 bootloader_version: db "bootloader with no name V.0.0.1", 0x0A, 0x0D, 0
-
+jump_failure: db "(BOOT) [FATAL] Could not access more memory! (Stuck at 512 bytes)", 0x0A, 0x0D
 times 510-($-$$) db 0
 dw 0xaa55
