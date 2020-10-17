@@ -23,7 +23,6 @@
 #		make run_debug ~ Run the kernel.elf file in Qemu with the -s -S flags for gdb.
 #		make iso:  ~ Create a bootable ISO file using grub-mkrescue (The flags "quiet" can be applied)
 #		make setup ~ Run chmod +x scripts/*.sh
-#		make install ~ Must be run.
 #		
 
 
@@ -58,8 +57,6 @@ ISO = BreezeOS.iso
 DDIRECTIVE = -DVERBOSE -DDEBUG -DFLAKE_VERSION=\"0.0\" -DVM_QEMU -Daesthetic
 DDIRECTIVE_RELEASE = -DVERBOSE -DFLAKE_VERSION=\"0.0\" -Daesthetic
 DDIRECTIVE_RELEASE_RAW_SPEED = -DVERBOSE -DFLAKE_VERSION=\"0.0\"
-
-HFILE_INSTALL_DIR = /usr/include/BreezeOS
 
 COM_COLOR   = \033[0;34m
 OBJ_COLOR   = \033[0;36m
@@ -200,12 +197,6 @@ endif
 	
 setup:
 	chmod +x scripts/*.sh
-
-install:
-	@printf "Moving header files into $(LIGHT_YELLOW)$(HFILE_INSTALL_DIR)$(RESET)\n";
-	@sudo rm -rf $(HFILE_INSTALL_DIR) || echo ""
-	@sudo cp -r includes/ $(HFILE_INSTALL_DIR)
-	@printf "[$(OK_COLOR)OK$(RESET)] Done.\n";
 	
 %.o : %.asm notify_asm
 ifdef quiet
