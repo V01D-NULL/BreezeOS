@@ -237,9 +237,9 @@ endif
 endif
 
 bootloader:
-	$(NASM) boot/boot.asm -o boot/boot.bin
-	$(NASM) boot/test.asm -o boot/test.bin
-	cat boot/boot.bin boot/test.bin > boot/final.bin
+	$(NASM) boot/512.asm -o boot/512.bin
+	$(NASM) boot/main.asm -o boot/main.bin
+	cat boot/512.bin boot/main.bin > boot/final.bin
 	@printf "Compiled bootloader\n";
 	
 run_bootloader:
