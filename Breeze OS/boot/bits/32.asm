@@ -67,10 +67,10 @@ flush_pipe:
     mov esp, 090000h
     
     ; TODO: Add print32.asm
-    mov ebx, 0xb8000
-    mov al, 'a'
-    mov ah, 0x0F
-    mov [ebx], ax
+;     mov ebx, 0xb8000
+;     mov al, 'a'
+;     mov ah, 0x0F
+;     mov [ebx], ax
     
     jmp protected_mode_main ; main.asm
 
