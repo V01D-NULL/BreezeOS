@@ -11,6 +11,9 @@ mov sp, bp
 ; Clear screen
 call cls
 
+mov si, nl
+call printf
+
 mov si, bootloader_version
 call printf
 
@@ -30,7 +33,9 @@ jmp $
 %include "boot/screen/print.asm"
 %include "boot/disk/disk.asm"
 
-bootloader_version: db "bootloader with no name V.0.0.1", 0x0A, 0x0D, 0
+bootloader_version: db "Kate bootloader V.0.0.1", 0x0A, 0x0D, 0
 jump_failure: db "(BOOT) [FATAL] Could not access more memory! (Stuck at 512 bytes)", 0x0A, 0x0D
+nl: db 0x0A, 0x0D, 0
+
 times 510-($-$$) db 0
 dw 0xaa55

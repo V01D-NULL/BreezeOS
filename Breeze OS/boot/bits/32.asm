@@ -39,10 +39,20 @@ load_gdt:
     cli
     xor ax, ax
     mov ds, ax
+    
+    mov si, doing_a20
+    call printf
+    
+    call enable_a20
+    mov si, ok_a20
+    call printf
+    
     lgdt [gdt_descriptor]
+    
     mov eax, cr0
     or eax, 1
     mov cr0, eax
+    
     jmp 08h:flush_pipe
     
 [bits 32]
@@ -50,12 +60,20 @@ flush_pipe:
     mov ax, 10h
     mov ds, ax
     mov ss, ax
-
+    mov es, ax
+    mov fs, ax
+    mov gs, ax
+    
     mov esp, 090000h
     
+    ; TODO: Add print32.asm
     mov ebx, 0xb8000
     mov al, 'a'
     mov ah, 0x0F
     mov [ebx], ax
     
-    jmp $
+    jmp protected_mode_main ; main.asm
+
+    
+doing_a20: db "(BOOT) [Task] Enabling the a20 line",  0x0A, 0x0D, 0
+ok_a20: db "(BOOT) [OK] Enabled a20 line", 0x0A, 0x0D, 0
