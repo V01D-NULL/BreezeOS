@@ -8,14 +8,14 @@ printf32:
     pusha
     mov edx, VIDEO_MEMORY
     print32_loop:
-        mov al, [ebx]
+        mov al, [esi]
         mov ah, COLOR
         
         cmp al, 0
         je done_print32
         
         mov [edx], ax
-        add ebx, 1
+        add esi, 1
         add edx, 2
         
         jmp print32_loop

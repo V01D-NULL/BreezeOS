@@ -19,7 +19,7 @@ protected_mode_main:
     ; Check a20 & enable it if it isn't enabled
     call check_a20
     
-    mov ebx, protected_mode_ok
+    mov esi, protected_mode_ok
     call printf32
     
     
