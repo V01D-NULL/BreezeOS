@@ -1,0 +1,2 @@
+/home/user/BreezeOS/Breeze OS/build/CMakeFiles/rebuild_cache.dir
+/home/user/BreezeOS/Breeze OS/build/CMakeFiles/edit_cache.dir

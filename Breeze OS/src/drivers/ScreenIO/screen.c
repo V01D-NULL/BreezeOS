@@ -1,7 +1,7 @@
 #include <drivers/ScreenIO/screen.h>
 
 
-_int16* vidmem = (_uint16*) VIDMEM;
+_uint16* vidmem = (_uint16*) VIDMEM;
 _uint32 _x;
 _uint32 _y;
 _uint8 color;
