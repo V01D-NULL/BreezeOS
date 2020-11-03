@@ -11,6 +11,7 @@ check_a20:
     popad
     jne enable_a20
     place_holder:
+    
     ret
     
 [bits 32]
@@ -19,8 +20,5 @@ enable_a20:
     in al, 0x92
     or al, 2
     out 0x92, al
-
-    ; success message
-    
-    
+        
     jmp place_holder

@@ -53,11 +53,11 @@ load_gdt:
     or eax, 1
     mov cr0, eax
     
-    jmp 08h:flush_pipe
+    jmp CODE_SEGMENT:flush_pipe
     
 [bits 32]
 flush_pipe:
-    mov ax, 10h
+    mov ax, DATA_SEGMENT
     mov ds, ax
     mov ss, ax
     mov es, ax
@@ -65,15 +65,12 @@ flush_pipe:
     mov gs, ax
     
     mov esp, 090000h
-    
-    ; TODO: Add print32.asm
-;     mov ebx, 0xb8000
-;     mov al, 'a'
-;     mov ah, 0x0F
-;     mov [ebx], ax
-    
+
     jmp protected_mode_main ; main.asm
 
     
+CODE_SEGMENT equ gdt_code_entry - gdt_null_descriptor ; 0x08
+DATA_SEGMENT equ gdt_data_entry - gdt_null_descriptor ; 0x10
+
 doing_a20: db "(BOOT) [Task] Enabling the a20 line",  0x0A, 0x0D, 0
 ok_a20: db "(BOOT) [OK] Enabled a20 line", 0x0A, 0x0D, 0
