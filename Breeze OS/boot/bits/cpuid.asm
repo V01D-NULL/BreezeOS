@@ -1,4 +1,5 @@
 ; Check if CPUID is supported
+[bits 32]
 is_CPUID_supported:
     pushfd
     pop eax
@@ -23,15 +24,15 @@ is_CPUID_supported:
     ret
 
 noCPUID_support:
-    mov bl, RED
-    mov esi, cpuid_not_supported_message
-    call printf32
+    ;mov bl, RED
+    ;mov esi, cpuid_not_supported_message
+    ;call printf32
     hlt
 
 noLongMode_support:
-    mov bl, RED
-    mov esi, longmode_not_supported
-    call printf32
+    ;mov bl, RED
+    ;mov esi, longmode_not_supported
+    ;call printf32
     hlt
 
 cpuid_not_supported_message: db "(ERROR) [FATAL] CPUID is  not supported on this machine- cannot jump to 64 bit mode", 0

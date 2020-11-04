@@ -237,9 +237,12 @@ endif
 endif
 
 bootloader:
-	$(NASM) boot/512.asm -o boot/512.bin
-	$(NASM) boot/main.asm -o boot/main.bin
-	cat boot/512.bin boot/main.bin > boot/final.bin
+	$(NASM_VERBOSE) boot/512.asm -f bin -o boot/512.bin
+	$(NASM_VERBOSE) boot/main.asm -f elf64 -o boot/main.o
+	$(CC_VERBOSE) -ffreestanding -mno-red-zone -m64 -nostdlib -c "boot/test.c" -o "boot/test.o"
+	$(LD_VERBOSE) -o boot/kernel.tmp -Ttext 0x7e00 boot/main.o boot/test.o
+	objcopy -O binary boot/kernel.tmp boot/kernel.bin
+	cat boot/512.bin boot/kernel.bin > boot/final.bin
 	@printf "Compiled bootloader\n";
 	
 run_bootloader:

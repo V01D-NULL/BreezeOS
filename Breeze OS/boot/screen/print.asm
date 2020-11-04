@@ -1,3 +1,4 @@
+[bits 16]
 printf:
     pusha
     print_loop:

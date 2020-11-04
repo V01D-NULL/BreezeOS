@@ -55,7 +55,7 @@ load_gdt:
     
     jmp CODE_SEGMENT:flush_pipe
     
-[bits 32]
+;[bits 32]
 flush_pipe:
     mov ax, DATA_SEGMENT
     mov ds, ax
@@ -64,8 +64,6 @@ flush_pipe:
     mov fs, ax
     mov gs, ax
     
-    mov esp, 090000h
-
     jmp protected_mode_main ; main.asm
 
     
