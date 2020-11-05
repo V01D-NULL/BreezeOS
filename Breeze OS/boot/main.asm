@@ -1,54 +1,58 @@
-[bits 16]
-mov si, jump_success
-call printf
 
-jmp load_gdt
+jmp protected_mode
 
-; This should NEVER run, but if for some reason it does, notify user and loop
-mov si, protected_mode_fail
-call printf
-
-;jmp $
-
+%include "boot/bits/gdt.asm"
 %include "boot/screen/print.asm"
 
+protected_mode:
+    call enable_a20
+
+    cli
+    lgdt [gdt_descriptor]
+    mov eax, cr0
+    or eax, 1
+    mov cr0, eax
+
+    jmp CODE_SEGMENT:protected_mode_main
+
+enable_a20:
+    in al, 0x92
+    or al, 2
+    out 0x92, al
+    ret
+
 [bits 32]
+
 %include "boot/bits/cpuid.asm"
 %include "boot/memory/paging.asm"
-%include "boot/bits/32.asm"
-%include "boot/bits/64.asm"
-%include "boot/bits/a20.asm"
 
 protected_mode_main:
-    mov [0xb8000], byte 'H'
-	mov [0xb8002], byte 'e'
-	mov [0xb8004], byte 'l'
-	mov [0xb8006], byte 'l'
-	mov [0xb8008], byte 'o'
-	mov [0xb800a], byte ' '
-	mov [0xb800c], byte 'W'
-	mov [0xb800e], byte 'o'
-	mov [0xb8010], byte 'r'
-	mov [0xb8012], byte 'l'
-	mov [0xb8014], byte 'd'
+    mov ax, DATA_SEGMENT
+    mov ds, ax
+    mov ss, ax 
+    mov es, ax
+    mov fs, ax
+    mov gs, ax
 
-    call check_a20
     call is_CPUID_supported
+    call is_long_mode_supported
     call setupIdentityPaging
     call load_64_bit_gdt
-    
+
     jmp CODE_SEGMENT:long_mode_main
-    jmp $
 
 [bits 64]
 [extern _start]
-long_mode_main:
-    
-    
-    call _start ; Reboots over and over. If this line is commented out everything works fine.
-    jmp $
 
-jump_success: db "(BOOT) [OK] Successfully expanded memory over 512 bytes", 0x0A, 0x0D, 0
-protected_mode_fail: db "(BOOT) [FATAL] Could not enter protected mode (32 bits)", 0x0A, 0x0D, 0
+long_mode_main:
+    ; Does not clear the screen with a blue color
+    mov edi, 0xb8000
+	mov rax, 0x1f201f201f201f20
+	mov ecx, 500
+	rep stosq
+
+    call _start ; Reboots over and over
+
+    hlt
 
 times 2048-($-$$) db 0

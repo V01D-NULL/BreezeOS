@@ -1,4 +1,4 @@
-PRG_SPACE equ 0x7c00+512 ; Program space
+PRG_SPACE equ 0x7e00 ; Program space
 
 expand_memory:
     mov bx, PRG_SPACE

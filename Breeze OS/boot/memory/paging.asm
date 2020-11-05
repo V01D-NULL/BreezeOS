@@ -1,5 +1,5 @@
 ; I have no idea what this does, credits to the osdev wiki for this code
-[bits 32]
+
 TableEntry equ 0x1000
 
 setupIdentityPaging:

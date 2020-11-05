@@ -1,3 +1,4 @@
+
 #
 #	Makefile for the BreezeKernel by V01D
 #
@@ -239,10 +240,10 @@ endif
 bootloader:
 	$(NASM_VERBOSE) boot/512.asm -f bin -o boot/512.bin
 	$(NASM_VERBOSE) boot/main.asm -f elf64 -o boot/main.o
-	$(CC_VERBOSE) -ffreestanding -mno-red-zone -m64 -nostdlib -c "boot/test.c" -o "boot/test.o"
-	$(LD_VERBOSE) -o boot/kernel.tmp -Ttext 0x7e00 boot/main.o boot/test.o
+	$(CC_VERBOSE) -ffreestanding -mno-red-zone -m64 -c boot/kernel.c -o boot/kernel.o
+	$(LD_VERBOSE) -o boot/kernel.tmp -Ttext 0x7e00 boot/main.o boot/kernel.o 
 	objcopy -O binary boot/kernel.tmp boot/kernel.bin
-	cat boot/512.bin boot/kernel.bin > boot/final.bin
+	cat boot/512.bin boot/kernel.bin > boot/final.flp
 	@printf "Compiled bootloader\n";
 	
 run_bootloader:
