@@ -1,5 +1,8 @@
-# BreezeOS
-Breeze OS is an experimental 64 bit operating system - under development whenever I feel like it ;)
+## README
+Hello, glad you are checking my project out :)
 
-### UPDATE:
-	- Oktober 15th ~ I just could not quit this kernel. It will be totally refreshed by redoing the IDT, ISR, IRQ's etc AND GRUB will be REPLACED with a custom bootloader.
+Unfortunately the BreezeOS project is EOL and it is very buggy and incomplete.
+
+The active development branch for my new and improved kernel can be found [here](https://github.com/V01D-NULL/ValidityOS)
+
+Looking forward to seeing you there :D
