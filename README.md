@@ -1,5 +1,5 @@
 ## README
-Hello, glad you are checking my project out :)
+Hello, glad you are checking out my project :)
 
 Unfortunately the BreezeOS project is EOL and it is very buggy and incomplete.
 
